@@ -21,6 +21,14 @@ btn.addEventListener("click", () => {
     generateGrid();
 });
 
+function generateRandomColor() {
+    let letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
 
 function generateGrid() {
     let container = document.querySelector('.container');
@@ -36,7 +44,7 @@ function generateGrid() {
         container.appendChild(cell);
 
         cell.addEventListener("mouseover", event => {
-            event.target.style.backgroundColor = "yellow";
+            event.target.style.backgroundColor = generateRandomColor();
         });
 
     }
